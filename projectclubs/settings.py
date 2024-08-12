@@ -32,10 +32,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_ckeditor_5',
     'users',
+    'collab',
+    'taggit',
     'rest_framework',
     'debug_toolbar',
-    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -62,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'collab.context_processors.menu',
             ],
         },
     },
