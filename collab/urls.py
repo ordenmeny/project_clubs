@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import *
-
+from .api_views import *
 app_name = 'collab'
 
 urlpatterns = [
@@ -12,4 +12,10 @@ urlpatterns = [
     path('send-msg/<slug:slug>/<int:pk>/', SendMsgView.as_view(), name='send_msg'),
     # for author club only
     path('list-confirm-team/<slug:slug>/', ListRequestTeamView.as_view(), name='list_confirm_team'),
+]
+
+# for api
+urlpatterns += [
+    path('api/club/', ClubAPIView.as_view()),
+
 ]

@@ -5,6 +5,15 @@ from taggit.managers import TaggableManager
 from django_ckeditor_5.fields import CKEditor5Field
 
 
+class Club(models.Model):
+    name = models.CharField(max_length=255, null=True, blank=True)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True, blank=True)
+    desc = models.TextField(verbose_name='Краткое описание', null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+
 class ClubModel(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='slug', null=True, blank=True)
     name = models.CharField(max_length=255, verbose_name='Название', unique=True)
