@@ -17,5 +17,5 @@ urlpatterns = [
 # for api
 urlpatterns += [
     path('api/club/', ClubAPIView.as_view()),
-
+    path('api/club/<int:pk>', ClubAPIView.as_view()),
 ]
