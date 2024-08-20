@@ -135,3 +135,10 @@ AUTH_USER_MODEL = 'users.UserModel'
 
 TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_STRIP_UNICODE_WHEN_SLUGIFYING = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer'
+    ]
+}

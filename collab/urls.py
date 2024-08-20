@@ -1,7 +1,6 @@
 from django.urls import path, include
 from .views import *
 from .api_views import *
-from rest_framework import routers  # new
 
 app_name = 'collab'
 
@@ -16,20 +15,9 @@ urlpatterns = [
     path('list-confirm-team/<slug:slug>/', ListRequestTeamView.as_view(), name='list_confirm_team'),
 ]
 
-# for API:
-
-router = routers.SimpleRouter()
-router.register(r'club', ClubViewSet)  # club-префикс
+# For API:
 
 urlpatterns += [
-    path('api/', include(router.urls))  # http://127.0.0.1:8000/api/club/<int:pk>/
-
-    # path('api/clubs/', ClubViewSet.as_view({'get': 'list', 'post': 'create'})),
-    # path('api/clubs/<int:pk>/', ClubViewSet.as_view(
-    #     {
-    #         'put': 'update',
-    #         'patch': 'update',
-    #         'get': 'retrieve',
-    #         'delete': 'destroy'
-    #     })),
+    path('api/clubs/', ClubAPICreateList.as_view()),
+    path('api/clubs/<int:pk>/', ClubDetailUpdateDeleteAPIView.as_view()),
 ]
