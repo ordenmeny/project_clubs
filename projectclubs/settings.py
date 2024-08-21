@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'taggit',
     'rest_framework',
     'debug_toolbar',
+    'rest_framework.authtoken',
+    'djoser',  # new
 ]
 
 MIDDLEWARE = [
@@ -143,5 +145,12 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        # Разрешить аунтификацию по сессиям:
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+
+    ),
 }

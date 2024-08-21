@@ -1,4 +1,5 @@
 from django.forms import model_to_dict
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import (RetrieveAPIView,
                                      ListCreateAPIView,
                                      RetrieveUpdateDestroyAPIView)
@@ -27,5 +28,5 @@ class ClubAPIViewDetail(RetrieveAPIView):
 class ClubAPIViewChange(RetrieveUpdateDestroyAPIView):
     queryset = Club.objects.all()
     serializer_class = ClubSerializer
-
     permission_classes = (IsAuthenticated, IsAuthorPerm,)
+    authentication_classes = (TokenAuthentication, )
