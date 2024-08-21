@@ -6,6 +6,8 @@ from .models import *
 
 
 class ClubSerializer(serializers.ModelSerializer):
+    # author = serializers.HiddenField(default=serializers.CurrentUserDefault)
+
     class Meta:
         model = Club
-        fields = ['name', 'author', 'desc']
+        fields = ['pk', 'name', 'author', 'desc']
