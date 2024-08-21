@@ -18,14 +18,10 @@ urlpatterns = [
 # For API:
 
 urlpatterns += [
-    # for all users:
     # list all and create
     path('api/clubs/', ClubAPIViewListCreate.as_view()),
     # detail
     path('api/clubs/<int:pk>/', ClubAPIViewDetail.as_view()),
-
-    # For admin only:
     # update, delete
     path('api/clubs/change/<int:pk>/', ClubAPIViewChange.as_view()),
-
 ]
