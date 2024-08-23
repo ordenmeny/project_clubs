@@ -10,6 +10,11 @@ urlpatterns = [
     path('', include('collab.urls')),
     # ckeditor
     path('ckeditor5/', include('django_ckeditor_5.urls')),
+    # djoser (drf authentication by token)
+    path('api/auth/', include('djoser.urls')),
+
+    # POST: api/token-auth/token/login/ - get a token
+    path('api/token-auth/', include('djoser.urls.authtoken')),
 ]
 
 urlpatterns += debug_toolbar_urls()

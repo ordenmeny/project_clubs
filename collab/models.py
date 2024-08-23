@@ -6,6 +6,7 @@ from django_ckeditor_5.fields import CKEditor5Field
 
 
 class ClubModel(models.Model):
+    objects = None
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='slug', null=True, blank=True)
     name = models.CharField(max_length=255, verbose_name='Название', unique=True)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,

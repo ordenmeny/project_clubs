@@ -36,8 +36,10 @@ INSTALLED_APPS = [
     'users',
     'collab',
     'taggit',
-    'rest_framework',
     'debug_toolbar',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -133,5 +135,14 @@ LOGIN_REDIRECT_URL = '/'  # Переадресация после входа
 LOGOUT_REDIRECT_URL = '/'  # Переадресация после выхода
 AUTH_USER_MODEL = 'users.UserModel'
 
+# tags
 TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_STRIP_UNICODE_WHEN_SLUGIFYING = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+    ],
+}
