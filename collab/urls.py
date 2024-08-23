@@ -17,6 +17,6 @@ urlpatterns = [
 
 urlpatterns += [
     path('api/clubs/', ListClubAPIView.as_view()),
-    path('api/clubs/<slug:slug>/', ChangeClubAPIView.as_view()),
     path('api/clubs/create/', CreateClubAPIView.as_view()),
+    path('api/clubs/<slug:slug>/', ChangeClubAPIView.as_view()),
 ]
