@@ -36,7 +36,7 @@ class RegisterUserView(CreateView):
 
 # Ссылка на тг-бот из личного кабинета пользователя:
 # https://t.me/startup_clubs_bot?start={{telegram_verif_code}}
-# telegram_verif_code присваивается прт регистрации.
+# telegram_verif_code присваивается при регистрации.
 #
 # Для общения с конкретным пользователем нужно получить chat_id.
 # Пользователь нажимает на "/start". Происходит отправка chat_id
